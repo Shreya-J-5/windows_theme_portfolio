@@ -38,7 +38,7 @@ const TASKBAR_ITEMS = [
   { id: 'community', label: 'Community', accent: '#0078d4', icon: Users },
   { id: 'resume', label: 'Resume', accent: '#e74856', icon: FileText },
   { id: 'terminal', label: 'Windows Terminal', accent: '#0078d4', icon: Terminal },
-  { id: 'askraksha', label: 'Ask Shreya', accent: '#8764ff', icon: Sparkles },
+  { id: 'askshreya', label: 'Ask Shreya', accent: '#8764ff', icon: Sparkles },
 ];
 
 export default function Dock({ onOpenAppGrid }: DockProps) {
@@ -157,7 +157,7 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
               >
                 <IconComp
                   className={`w-5 h-5 transition-transform group-hover:scale-110 ${
-                    item.id === 'askraksha' ? 'text-purple-400' : 'text-white/90'
+                    item.id === 'askshreya' ? 'text-purple-400' : 'text-white/90'
                   }`}
                 />
               </button>

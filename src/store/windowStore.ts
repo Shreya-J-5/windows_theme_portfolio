@@ -95,7 +95,7 @@ const APP_DEFINITIONS: Omit<
   { id: "resume", title: "Resume", icon: "file-text", width: 800, height: 640, component: "Resume" },
   { id: "contact", title: "Contact", icon: "mail", width: 600, height: 450, component: "Contact" },
   { id: "terminal", title: "Windows Terminal", icon: "terminal", width: 720, height: 480, component: "Terminal" },
-  { id: "askraksha", title: "Ask Shreya", icon: "sparkles", width: 700, height: 560, component: "AskRaksha" },
+  { id: "askshreya", title: "Ask Shreya", icon: "sparkles", width: 700, height: 560, component: "AskShreya" },
 ];
 
 function buildInitialWindows(): Record<string, WindowState> {

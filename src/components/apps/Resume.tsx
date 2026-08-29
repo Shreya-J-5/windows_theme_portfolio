@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Download, ZoomIn, ZoomOut, ExternalLink } from 'lucide-react';
 
 export default function Resume() {
-  const resumeUrl = '/assets/resume/Raksha_Resume_.pdf';
+  const resumeUrl = '/assets/resume/Shreya_Resume_.pdf';
   const [zoom, setZoom] = useState(100);
   const [hasError, setHasError] = useState(false);
 

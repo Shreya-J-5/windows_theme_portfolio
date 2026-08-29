@@ -112,7 +112,7 @@ export default function GlobalSearch({ onClose }: GlobalSearchProps) {
       {lowerQ && (
         <div className="p-2 border-t border-white/8 bg-white/3 rounded-b-lg">
           <button
-            onClick={() => { openApp('askraksha'); onClose(); }}
+            onClick={() => { openApp('askshreya'); onClose(); }}
             className="w-full text-left px-3.5 py-2.5 rounded hover:bg-[#0078d4]/20 text-[#0078d4] transition-colors flex items-center gap-3 text-xs font-medium"
           >
             <Sparkles className="w-4 h-4" />

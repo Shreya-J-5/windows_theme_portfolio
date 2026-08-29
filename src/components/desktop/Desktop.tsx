@@ -149,7 +149,7 @@ const DESKTOP_ICONS = [
     action: 'terminal',
   },
   {
-    id: 'askraksha',
+    id: 'askshreya',
     label: 'Ask Shreya AI',
     isShortcut: true,
     icon: (
@@ -157,7 +157,7 @@ const DESKTOP_ICONS = [
         <Sparkles className="w-6 h-6 text-yellow-300" />
       </div>
     ),
-    action: 'askraksha',
+    action: 'askshreya',
   },
 ];
 

@@ -15,21 +15,21 @@ import Photos from '../apps/Photos';
 import Resume from '../apps/Resume';
 import Contact from '../apps/Contact';
 import Terminal from '../apps/Terminal';
-import AskRaksha from '../apps/AskRaksha';
+import AskShreya from '../apps/AskShreya';
 
-const APP_MAP: Record<string, { component: React.ComponentType; label: string; icon: React.ReactNode }> = {
-  about: { component: About, label: 'About', icon: <User size={22} /> },
-  experience: { component: Experience, label: 'Experience', icon: <Briefcase size={22} /> },
+const MOBILE_APPS: Record<string, { component: React.ComponentType; label: string; icon: React.ReactNode }> = {
+  about: { component: About, label: 'About Me', icon: <User size={22} /> },
   projects: { component: Projects, label: 'Projects', icon: <Code size={22} /> },
+  experience: { component: Experience, label: 'Experience', icon: <Briefcase size={22} /> },
   skills: { component: Skills, label: 'Skills', icon: <Cpu size={22} /> },
-  achievements: { component: Achievements, label: 'Awards', icon: <Trophy size={22} /> },
-  certifications: { component: Certifications, label: 'Certs', icon: <Award size={22} /> },
+  achievements: { component: Achievements, label: 'Achievements', icon: <Trophy size={22} /> },
+  certifications: { component: Certifications, label: 'Certifications', icon: <Award size={22} /> },
   community: { component: Community, label: 'Community', icon: <Users size={22} /> },
   photos: { component: Photos, label: 'Photos', icon: <Image size={22} /> },
   resume: { component: Resume, label: 'Resume', icon: <FileText size={22} /> },
   contact: { component: Contact, label: 'Contact', icon: <Mail size={22} /> },
   terminal: { component: Terminal, label: 'Terminal', icon: <TerminalSquare size={22} /> },
-  askraksha: { component: AskRaksha, label: 'Ask Shreya', icon: <Sparkles size={22} /> },
+  askshreya: { component: AskShreya, label: 'Ask Shreya', icon: <Sparkles size={22} /> },
 };
 
 const APP_ORDER = ['about', 'projects', 'experience', 'skills', 'achievements', 'certifications', 'community', 'photos', 'resume', 'contact', 'terminal'];
@@ -37,7 +37,7 @@ const APP_ORDER = ['about', 'projects', 'experience', 'skills', 'achievements', 
 export default function MobileLayout() {
   const [activeApp, setActiveApp] = useState<string | null>(null);
 
-  const ActiveComponent = activeApp ? APP_MAP[activeApp]?.component : null;
+  const ActiveComponent = activeApp ? MOBILE_APPS[activeApp]?.component : null;
 
   return (
     <div className="fixed inset-0 bg-[#202020] text-white overflow-hidden flex flex-col">
@@ -52,7 +52,7 @@ export default function MobileLayout() {
 
           {/* Ask Shreya */}
           <button
-            onClick={() => setActiveApp('askraksha')}
+            onClick={() => setActiveApp('askshreya')}
             className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#0078d4] to-indigo-600 p-4 rounded-2xl shadow-lg active:scale-[0.97] transition-transform"
           >
             <Sparkles className="w-5 h-5" />
@@ -62,7 +62,7 @@ export default function MobileLayout() {
           {/* App Grid */}
           <div className="grid grid-cols-4 gap-x-4 gap-y-6 pt-2">
             {APP_ORDER.map((id) => {
-              const app = APP_MAP[id];
+              const app = MOBILE_APPS[id];
               if (!app) return null;
               return (
                 <button
@@ -100,7 +100,7 @@ export default function MobileLayout() {
                 <span className="text-sm">Back</span>
               </button>
               <span className="text-sm font-semibold text-white/80">
-                {APP_MAP[activeApp]?.label}
+                {MOBILE_APPS[activeApp]?.label}
               </span>
               <div className="w-14" />
             </div>

@@ -1,19 +1,19 @@
-# Raksha Chahar — Portfolio Master Profile
+# Shreya Jolapara — Portfolio Master Profile
 
 ## Identity
-- Name: Raksha Chahar
-- Professional positioning: AI/ML Engineer | Python | Machine Learning | Generative AI | RAG Systems | LangChain | PyTorch | Building AI Applications
+- Name: Shreya Jolapara
+- Professional positioning: AI/ML Developer | Python | Machine Learning | Generative AI | RAG Systems | LangChain | PyTorch | Building AI Applications
 - Primary direction: AI/ML engineering, intelligent systems, applied machine learning, Generative AI, RAG, AI agents, practical AI application development
 - Education: B.Tech in Artificial Intelligence & Machine Learning
 - Institution: World College of Technology & Management (WCTM), Gurugram, affiliated to Maharshi Dayanand University (MDU), Rohtak
 - CGPA: 8.86/10.00
 - Expected graduation: May 2028
-- Public email: rakshachahar336@gmail.com
-- LinkedIn: https://www.linkedin.com/in/raksha-chahar
-- GitHub: https://github.com/rakshachahar
+- Public email: shreyajolapara@gmail.com
+- LinkedIn: https://www.linkedin.com/in/shreya-jolapara
+- GitHub: https://github.com/Shreya-J-5
 
 ## Professional Summary
-Raksha is an AI/ML undergraduate focused on building practical AI applications that combine machine learning, information retrieval, Generative AI and software engineering. Her strongest documented area is Retrieval-Augmented Generation, with work spanning semantic retrieval, vector search, LLM integration and grounded question answering. Her portfolio also includes civic-tech intelligence, privacy-focused safety technology, AI-for-education conceptual work, and open-source contribution.
+Shreya is an AI/ML undergraduate focused on building practical AI applications that combine machine learning, information retrieval, Generative AI and software engineering. Her strongest documented area is Retrieval-Augmented Generation, with work spanning semantic retrieval, vector search, LLM integration and grounded question answering. Her portfolio also includes civic-tech intelligence, privacy-focused safety technology, AI-for-education conceptual work, and open-source contribution.
 
 Her stated direction is to contribute to AI/ML engineering, intelligent systems and applied machine learning projects.
 
@@ -120,7 +120,7 @@ Tech:
 Python, LangChain, FAISS, Sentence Transformers, Streamlit, OpenRouter API, ScaleDown API
 
 Links:
-- GitHub: https://github.com/rakshachahar/scientific-literature-explorer-rag
+- GitHub: https://github.com/Shreya-J-5/scientific-literature-explorer-rag
 - Live: https://scientific-literature-explorer-rag.streamlit.app/
 
 Context:
@@ -153,7 +153,7 @@ Tech:
 TypeScript, React, Vite, Tailwind CSS, Node.js, Express, Google Gemini, PostgreSQL, Drizzle ORM, Zod, Recharts, REST APIs
 
 Links:
-- GitHub: https://github.com/rakshachahar/community-pulse-ai
+- GitHub: https://github.com/Shreya-J-5/community-pulse-ai
 - Live: https://community-pulse-ai.onrender.com/
 
 Important limitation:
@@ -181,7 +181,7 @@ Tech:
 React, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React, Supabase, PostgreSQL, Supabase Auth, RLS, Vercel
 
 Links:
-- GitHub: https://github.com/rakshachahar/anonymous-safety-intelligence-system
+- GitHub: https://github.com/Shreya-J-5/anonymous-safety-intelligence-system
 - Live: https://anonymous-safety-intelligence-syste.vercel.app/
 
 Important limitation:
@@ -194,7 +194,7 @@ Description:
 A compiler-style AI system that converts natural-language application requirements into validated application schemas using intent extraction, validation, repair and runtime simulation.
 
 Verified GitHub metadata:
-- Repository: https://github.com/rakshachahar/ai-app-compiler-project
+- Repository: https://github.com/Shreya-J-5/ai-app-compiler-project
 - TypeScript
 - React
 - automation
@@ -211,7 +211,7 @@ Description:
 A handwritten-document intelligence project involving computer vision / OCR-style processing and structured extraction.
 
 Repository:
-https://github.com/rakshachahar/AI-Handwritten-Document-Intelligence
+https://github.com/Shreya-J-5/AI-Handwritten-Document-Intelligence
 
 Only use detailed implementation claims when the corresponding project documentation/assets are supplied. Do not invent evaluation metrics.
 
@@ -222,7 +222,7 @@ Description:
 AI-powered NGO decision-support project for prioritizing needs and allocating volunteers.
 
 Repository:
-https://github.com/rakshachahar/relief-ops-mvp
+https://github.com/Shreya-J-5/relief-ops-mvp
 
 Do not invent architecture, model or performance details without source documentation.
 
@@ -238,7 +238,7 @@ Repository is private. Do not expose a public GitHub link or imply that visitors
 Status: Public GitHub repository
 
 Repository:
-https://github.com/rakshachahar/flyrank-ml-internship
+https://github.com/Shreya-J-5/flyrank-ml-internship
 
 Use only verified repository content for detailed project claims.
 
@@ -248,13 +248,13 @@ Status: Private GitHub repository
 Description:
 Repository used to document JavaScript learning.
 
-Do not link publicly unless Raksha makes it public.
+Do not link publicly unless Shreya makes it public.
 
 ## Hackathons & Achievements
 
 ### Elite Her Hackathon 2026
 - Winner — Influencer & Communication Track
-- LinkedIn source identifies Raksha among the winners.
+- LinkedIn source identifies Shreya among the winners.
 - Achievement image is supplied.
 - Do not describe this as a technical first-place project award; the verified wording is the Influencer/Communication Track.
 
@@ -317,16 +317,16 @@ Credential IDs should only be shown where the supplied LinkedIn source explicitl
 
 ### ASIS International South Asia Meet 2026
 - Location: JW Marriott, Aerocity, New Delhi
-- Raksha attended with college peers.
+- Shreya attended with college peers.
 - Event themes documented: AI, digital transformation, emerging risks, AI-driven security, deepfakes, misinformation, physical/security intelligence and human intelligence.
-- Raksha described this as meaningful industry exposure beyond the classroom.
+- Shreya described this as meaningful industry exposure beyond the classroom.
 - Event image is supplied.
 
 ### Avalanche Team1 City Connect — Delhi
 - Location: Microsoft Office, Noida
-- First documented solo technology event for Raksha.
+- First documented solo technology event for Shreya.
 - Themes: Web3, Avalanche ecosystem, blockchain, AI agents and Team1 community.
-- Raksha emphasized conversations, networking and learning from attendees/speakers.
+- Shreya emphasized conversations, networking and learning from attendees/speakers.
 - Microsoft event image is supplied.
 
 ### India Innovates 2026
@@ -339,7 +339,7 @@ Credential IDs should only be shown where the supplied LinkedIn source explicitl
 The supplied asset folder includes `iit.jpg`. Do not invent event metadata from the filename alone. Use additional source information if available; otherwise display it as an event/community photo without unsupported claims.
 
 ## Learning & Professional Development Themes
-Raksha's public posts consistently describe an interest in:
+Shreya's public posts consistently describe an interest in:
 - building practical AI applications
 - moving from prototypes toward stronger engineering practices
 - RAG and grounded AI
@@ -352,8 +352,8 @@ Raksha's public posts consistently describe an interest in:
 - networking and industry exposure
 
 ## Public Links
-- LinkedIn: https://www.linkedin.com/in/raksha-chahar
-- GitHub: https://github.com/rakshachahar
+- LinkedIn: https://www.linkedin.com/in/shreya-jolapara
+- GitHub: https://github.com/Shreya-J-5
 - Scientific Literature Explorer: https://scientific-literature-explorer-rag.streamlit.app/
 - CommunityPulse AI: https://community-pulse-ai.onrender.com/
 - SafeVoice: https://anonymous-safety-intelligence-syste.vercel.app/

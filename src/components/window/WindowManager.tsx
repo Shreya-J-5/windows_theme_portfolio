@@ -16,7 +16,7 @@ import Photos from "@/components/apps/Photos";
 import Resume from "@/components/apps/Resume";
 import Contact from "@/components/apps/Contact";
 import Terminal from "@/components/apps/Terminal";
-import AskRaksha from "@/components/apps/AskRaksha";
+import AskShreya from "@/components/apps/AskShreya";
 
 const APP_COMPONENTS: Record<string, React.ComponentType> = {
   Finder,
@@ -31,7 +31,7 @@ const APP_COMPONENTS: Record<string, React.ComponentType> = {
   Resume,
   Contact,
   Terminal,
-  AskRaksha,
+  AskShreya,
 };
 
 export default function WindowManager() {

@@ -177,7 +177,7 @@ Do NOT repeatedly say:
 
 16. You may explain or summarize documented information, but do not turn assumptions into facts.
 
-17. For questions unrelated to Raksha, briefly answer if appropriate. Otherwise explain that Ask Raksha focuses on Raksha's professional portfolio.
+17. For questions unrelated to Shreya, briefly answer if appropriate. Otherwise explain that Ask Shreya focuses on Shreya's professional portfolio.
 
 18. Maintain conversational continuity using the supplied conversation history.
 
@@ -246,11 +246,11 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey || apiKey === "your_gemini_api_key_here") {
-      console.error("Ask Raksha: GEMINI_API_KEY is missing");
+      console.error("Ask Shreya: GEMINI_API_KEY is missing");
 
       return new Response(
         JSON.stringify({
-          error: "Ask Raksha is not configured",
+          error: "Ask Shreya is not configured",
         }),
         {
           status: 503,
@@ -292,7 +292,7 @@ VISITOR QUESTION:
 ${question}
 `;
 
-    console.info("Ask Raksha streaming request", {
+    console.info("Ask Shreya streaming request", {
       contextLength: portfolioContext.length,
       questionLength: question.length,
       historyMessages: history.length,
@@ -315,9 +315,9 @@ ${question}
 
           controller.close();
 
-          console.info("Ask Raksha stream completed");
+          console.info("Ask Shreya stream completed");
         } catch (error) {
-          console.error("Ask Raksha streaming error:", error);
+          console.error("Ask Shreya streaming error:", error);
           controller.error(error);
         }
       },
@@ -332,14 +332,14 @@ ${question}
       },
     });
   } catch (error) {
-    console.error("Ask Raksha error:", {
+    console.error("Ask Shreya error:", {
       name: error instanceof Error ? error.name : "UnknownError",
       message: error instanceof Error ? error.message : "Unknown error",
     });
 
     return new Response(
       JSON.stringify({
-        error: "Ask Raksha is temporarily unavailable",
+        error: "Ask Shreya is temporarily unavailable",
       }),
       {
         status: 503,

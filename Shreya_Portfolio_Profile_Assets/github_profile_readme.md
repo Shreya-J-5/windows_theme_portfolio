@@ -1,6 +1,6 @@
-# Hi, I'm Raksha Chahar 👋
+# Hi, I'm Shreya Jolapara 👋
 
-### AI/ML Engineer | Python | Generative AI | RAG | Machine Learning
+### AI/ML Developer | Python | Generative AI | RAG | Full-Stack Machine Learning
 
 I'm a B.Tech AI/ML student focused on building practical AI applications that combine machine learning, information retrieval, Generative AI and software engineering.
 
@@ -41,5 +41,6 @@ Privacy-focused anonymous safety reporting with geospatial analytics, dashboards
 
 ## Connect
 
-- LinkedIn: https://www.linkedin.com/in/raksha-chahar
-- Email: rakshachahar336@gmail.com
+- GitHub: https://github.com/Shreya-J-5
+- LinkedIn: https://www.linkedin.com/in/shreya-jolapara
+- Portfolio: https://github.com/Shreya-J-5/windows_theme_portfolio

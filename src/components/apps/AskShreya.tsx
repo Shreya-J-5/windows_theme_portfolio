@@ -33,7 +33,7 @@ const STARTER_QUESTIONS = [
   "What achievements has she earned?",
 ];
 
-export default function AskRaksha() {
+export default function AskShreya() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -165,7 +165,7 @@ export default function AskRaksha() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/ask-raksha", {
+      const response = await fetch("/api/ask-shreya", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -178,7 +178,7 @@ export default function AskRaksha() {
 
       if (!response.ok || !response.body) {
         let errorMessage =
-          "Ask Raksha is temporarily unavailable.";
+          "Ask Shreya is temporarily unavailable.";
 
         try {
           const payload = await response.json();
@@ -231,14 +231,14 @@ export default function AskRaksha() {
         flushStreamingMessage(accumulatedText);
       } else {
         flushStreamingMessage(
-          "Ask Raksha could not generate a response. Please try again."
+          "Ask Shreya could not generate a response. Please try again."
         );
       }
     } catch (error) {
-      console.error("Ask Raksha client error:", error);
+      console.error("Ask Shreya client error:", error);
 
       flushStreamingMessage(
-        "Ask Raksha is temporarily unavailable. The rest of the portfolio is still accessible."
+        "Ask Shreya is temporarily unavailable. The rest of the portfolio is still accessible."
       );
     } finally {
       if (streamUpdateRef.current !== null) {

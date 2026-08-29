@@ -1,14 +1,14 @@
 {
   "person": {
-    "name": "Raksha Chahar",
-    "headline": "AI/ML Engineer | Python | Machine Learning | Generative AI | RAG Systems | LangChain | PyTorch | Building AI Applications | Open to AI/ML Internships",
+    "name": "Shreya Jolapara",
+    "headline": "AI/ML Developer | Python | Machine Learning | Generative AI | RAG Systems | LangChain | PyTorch | Building AI Applications",
     "education": "B.Tech in Artificial Intelligence & Machine Learning",
     "institution": "World College of Technology & Management (WCTM), Gurugram, affiliated to Maharshi Dayanand University (MDU), Rohtak",
     "cgpa": "8.86/10.00",
     "graduation": "May 2028",
-    "email": "rakshachahar336@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/raksha-chahar",
-    "github": "https://github.com/rakshachahar"
+    "email": "shreyajolapara@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/shreya-jolapara",
+    "github": "https://github.com/Shreya-J-5"
   },
   "skills": {
     "languages": [
@@ -103,7 +103,7 @@
       "name": "Scientific Literature Explorer",
       "status": "public",
       "category": "RAG/NLP",
-      "github": "https://github.com/rakshachahar/scientific-literature-explorer-rag",
+      "github": "https://github.com/Shreya-J-5/scientific-literature-explorer-rag",
       "demo": "https://scientific-literature-explorer-rag.streamlit.app/",
       "stack": [
         "Python",
@@ -128,7 +128,7 @@
       "name": "CommunityPulse AI",
       "status": "public",
       "category": "Civic AI",
-      "github": "https://github.com/rakshachahar/community-pulse-ai",
+      "github": "https://github.com/Shreya-J-5/community-pulse-ai",
       "demo": "https://community-pulse-ai.onrender.com/",
       "stack": [
         "TypeScript",
@@ -157,7 +157,7 @@
       "name": "Anonymous Safety Intelligence System / SafeVoice",
       "status": "public",
       "category": "Safety intelligence",
-      "github": "https://github.com/rakshachahar/anonymous-safety-intelligence-system",
+      "github": "https://github.com/Shreya-J-5/anonymous-safety-intelligence-system",
       "demo": "https://anonymous-safety-intelligence-syste.vercel.app/",
       "stack": [
         "React",
@@ -182,7 +182,7 @@
     {
       "name": "AI App Compiler",
       "status": "public archive",
-      "github": "https://github.com/rakshachahar/ai-app-compiler-project",
+      "github": "https://github.com/Shreya-J-5/ai-app-compiler-project",
       "stack": [
         "React",
         "TypeScript",
@@ -202,7 +202,7 @@
     {
       "name": "AI Handwritten Document Intelligence",
       "status": "public archive",
-      "github": "https://github.com/rakshachahar/AI-Handwritten-Document-Intelligence",
+      "github": "https://github.com/Shreya-J-5/AI-Handwritten-Document-Intelligence",
       "facts": [
         "handwritten document intelligence"
       ],
@@ -211,7 +211,7 @@
     {
       "name": "Relief Ops MVP",
       "status": "public archive",
-      "github": "https://github.com/rakshachahar/relief-ops-mvp",
+      "github": "https://github.com/Shreya-J-5/relief-ops-mvp",
       "facts": [
         "AI-powered NGO decision support",
         "prioritizing needs",
@@ -231,7 +231,7 @@
     {
       "name": "FlyRank ML Internship",
       "status": "public",
-      "github": "https://github.com/rakshachahar/flyrank-ml-internship"
+      "github": "https://github.com/Shreya-J-5/flyrank-ml-internship"
     },
     {
       "name": "JavaScript Learning",
@@ -327,7 +327,7 @@
       "title": "Python",
       "issuer": "Kaggle",
       "issued": "Dec 2025",
-      "credential_id": "raksha/python"
+      "credential_id": "shreya/python"
     },
     {
       "title": "Postman API Fundamentals Student Expert",
@@ -369,9 +369,9 @@
     }
   ],
   "grounding": {
-    "allowed_scope": "Questions about Raksha and her verified portfolio.",
+    "allowed_scope": "Questions about Shreya and her verified portfolio.",
     "unknown_response": "I don't have verified information about that.",
-    "unrelated_response": "I'm Ask Raksha, so I only answer questions about Raksha and her work.",
+    "unrelated_response": "I'm Ask Shreya, so I only answer questions about Shreya and her work.",
     "future_rule": "Never state an unverified future event as a fact. Distinguish goals/plans from guaranteed outcomes.",
     "private_rule": "Do not expose private repository URLs or private project details as public resources.",
     "concise": true
