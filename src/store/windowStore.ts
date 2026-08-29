@@ -133,20 +133,6 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
     const win = state.windows[id];
     if (!win) return;
 
-    if (win.isOpen && !win.isMinimized) {
-      // Already open and visible — just focus
-      get().focusApp(id);
-      if (subRoute) {
-        set((s) => ({
-          windows: {
-            ...s.windows,
-            [id]: { ...s.windows[id], subRoute },
-          },
-        }));
-      }
-      return;
-    }
-
     const newZ = state.nextZIndex + 1;
     const updates: Partial<WindowState> = {
       isOpen: true,
@@ -166,12 +152,10 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
     }
     if (subRoute) updates.subRoute = subRoute;
 
-    // Unfocus others
+    // Unfocus others and set highest zIndex on target window
     const newWindows = { ...state.windows };
     for (const key of Object.keys(newWindows)) {
-      if (key !== id) {
-        newWindows[key] = { ...newWindows[key], isFocused: false };
-      }
+      newWindows[key] = { ...newWindows[key], isFocused: key === id };
     }
     newWindows[id] = { ...newWindows[id], ...updates };
 
