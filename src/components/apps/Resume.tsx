@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Download, ZoomIn, ZoomOut, ExternalLink } from 'lucide-react';
 
 export default function Resume() {
-  const resumeUrl = '/assets/resume/Shreya_Resume_.pdf';
+  const resumeUrl = '/assets/resume/shreya_tech_resume.pdf';
   const [zoom, setZoom] = useState(100);
   const [hasError, setHasError] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Resume() {
     <div className="flex flex-col h-full bg-[#323639]">
       <div className="flex items-center justify-between px-4 py-2 bg-[#202124] border-b border-black/20 text-white shadow-md z-10">
         <div className="flex items-center gap-4">
-          <span className="text-sm font-medium hidden sm:inline-block">Shreya_Jolapara_Resume.pdf</span>
+          <span className="text-sm font-medium hidden sm:inline-block">shreya_tech_resume.pdf</span>
         </div>
         
         <div className="flex items-center gap-2">

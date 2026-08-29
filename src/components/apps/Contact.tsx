@@ -93,7 +93,7 @@ export default function Contact() {
 
         <div className="pt-6 border-t border-white/10 flex justify-center">
           <a
-            href="/assets/resume/Shreya_Resume_.pdf"
+            href="/assets/resume/shreya_tech_resume.pdf"
             download
             className="flex items-center gap-2 px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-colors"
           >
