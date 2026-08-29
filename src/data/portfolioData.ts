@@ -125,7 +125,7 @@ export const experience: Experience[] = [
       "Developed digital interfaces, dashboards, application graphics, and responsive layouts for online projects",
       "Translated client requirements into structured digital solutions with a focus on usability",
     ],
-    logo: "/assets/experience/logos/freelance.jpg",
+    logo: "/assets/experience/logos/freelance.png",
   },
   {
     role: "Creative Media Projects",
@@ -136,7 +136,7 @@ export const experience: Experience[] = [
       "Developed digital assets and platform-specific content for YouTube, Discord, Twitch, and online platforms",
       "Worked with creators to deliver customized solutions based on technical platform requirements",
     ],
-    logo: "/assets/experience/logos/creative.jpg",
+    logo: "/assets/experience/logos/creative.png",
   },
 ];
 
