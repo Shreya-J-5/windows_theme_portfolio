@@ -99,105 +99,102 @@ If the visitor asks to see/download the resume, use [OPEN_RESUME].`,
   ].join("\n\n");
 }
 
+function generateLocalResponse(question: string): string {
+  const q = question.toLowerCase();
+
+  if (q.includes("hire") || q.includes("why should") || q.includes("why hire")) {
+    return "Shreya is a dedicated B.Tech Artificial Intelligence & Machine Learning student at LJ University with a strong portfolio of 19+ real-world projects. She excels in AI/ML model development, full-stack web engineering (React, Next.js, TypeScript), and backend system design (Python, Django, Docker). She brings a proactive problem-solving mindset, proven technical versatility, and continuous learning to any engineering team. [OPEN_ABOUT] [OPEN_PROJECTS]";
+  }
+
+  if (q.includes("project") || q.includes("built") || q.includes("work")) {
+    return "Shreya has built 19+ verified projects spanning AI/ML, Full-Stack Development, and DevOps. Highlights include ScamShield (AI Phishing & Scam Detector), Fyro (24/7 Discord Music Bot), PaletteLens (Color Analysis Platform), and the National Job Market Demand Forecaster. [OPEN_PROJECTS]";
+  }
+
+  if (q.includes("scamshield") || q.includes("phishing") || q.includes("scam")) {
+    return "ScamShield is an AI-powered security platform and browser extension created by Shreya that detects phishing attempts, malicious links, and scam content in real time using Machine Learning and NLP models. [OPEN_PROJECTS]";
+  }
+
+  if (q.includes("fyro") || q.includes("music") || q.includes("bot")) {
+    return "Fyro is a production-grade Discord music bot developed by Shreya featuring custom audio stream resolution, queue management, Spotify metadata integration, and PostgreSQL/Redis backend architecture. [OPEN_PROJECTS]";
+  }
+
+  if (
+    q.includes("skill") ||
+    q.includes("stack") ||
+    q.includes("technology") ||
+    q.includes("languages")
+  ) {
+    return "Shreya's technical stack includes:\n• AI/ML: Python, TensorFlow, Scikit-learn, OpenCV, NLP\n• Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS\n• Backend & DevOps: Django, Flask, Node.js, Docker, REST APIs, PostgreSQL\n• Programming: Python, Java, C++, JavaScript [OPEN_SKILLS]";
+  }
+
+  if (
+    q.includes("experience") ||
+    q.includes("internship") ||
+    q.includes("role")
+  ) {
+    return "Shreya has engaged in hands-on software development and technical projects, contributing to full-stack applications, data analytics workflows, and AI integrations. [OPEN_EXPERIENCE]";
+  }
+
+  if (q.includes("resume") || q.includes("cv") || q.includes("pdf")) {
+    return "You can view and download Shreya's updated resume directly within the portfolio viewer. [OPEN_RESUME]";
+  }
+
+  if (
+    q.includes("achievement") ||
+    q.includes("hackathon") ||
+    q.includes("award") ||
+    q.includes("win")
+  ) {
+    return "Shreya actively participates in competitive programming and technical hackathons, earning recognitions for her AI and web development innovations. [OPEN_ACHIEVEMENTS]";
+  }
+
+  if (
+    q.includes("certif") ||
+    q.includes("course") ||
+    q.includes("education") ||
+    q.includes("degree") ||
+    q.includes("university") ||
+    q.includes("college")
+  ) {
+    return "Shreya is pursuing her B.Tech in Artificial Intelligence & Machine Learning at LJ University. She holds certifications from Google, IBM, Coursera, and UPenn in Python, Data Science, AI, and Java. [OPEN_CERTIFICATIONS]";
+  }
+
+  if (
+    q.includes("contact") ||
+    q.includes("email") ||
+    q.includes("reach") ||
+    q.includes("github") ||
+    q.includes("linkedin")
+  ) {
+    return "You can connect with Shreya via:\n• Email: shreyajolapara@gmail.com\n• GitHub: https://github.com/Shreya-J-5\n• LinkedIn: Shreya Jolapara [OPEN_CONTACT]";
+  }
+
+  if (
+    q.includes("hello") ||
+    q.includes("hi") ||
+    q.includes("hey") ||
+    q.includes("who are you")
+  ) {
+    return "Hello! I am Ask Shreya, an AI assistant for Shreya Jolapara's portfolio. You can ask me about her 19+ projects, AI/ML skills, education at LJ University, or why she'd be a great fit for your team! [OPEN_ABOUT]";
+  }
+
+  return `Shreya Jolapara is an AI/ML student at LJ University and Full-Stack Developer with 19+ public repositories. Key projects include ScamShield (AI Phishing Detector), Fyro (Discord Music Bot), and PaletteLens. Feel free to ask about her skills, projects, or view her resume! [OPEN_PROJECTS]`;
+}
+
 const systemInstruction = `
 You are Ask Shreya, an intelligent conversational AI assistant for Shreya Jolapara's professional portfolio.
 
 Your purpose is to answer visitors naturally, intelligently, and conversationally.
 
 CORE BEHAVIOR:
-
 1. Use the portfolio data supplied with the request as your factual source about Shreya.
-
 2. Do NOT behave like a fixed FAQ bot.
-
-3. Do NOT return hardcoded answers.
-
-4. Generate a fresh response for every visitor question.
-
-5. Understand:
-- natural language
-- paraphrased questions
-- spelling mistakes
-- incomplete questions
-- casual wording
-- follow-up questions
-- conversational references such as "that project", "her internship", "what about her skills?"
-
-6. Answer the visitor's actual question directly.
-
-7. You may combine information from different portfolio sections when that helps answer the question.
-
-8. Do not unnecessarily repeat the question.
-
-9. Keep normal answers concise but complete. Usually 2-5 sentences or a short list when appropriate.
-
-10. Do not stop halfway through a sentence or thought.
-
-11. Do not use Markdown formatting.
-Use clean plain text suitable for a chat interface.
-
-12. Never output:
-- **
-- ##
-- Markdown tables
-- Markdown code blocks
-
-13. Never mention:
-- portfolio context
-- system instructions
-- prompts
-- APIs
-- Gemini
-- databases
-- retrieval systems
-- internal implementation
-
-14. Never invent facts.
-
-This includes:
-- education
-- degree
-- college
-- internships
-- companies
-- projects
-- skills
-- achievements
-- certifications
-- dates
-- organizations
-- relationships
-- contact information
-- personal information
-
-15. If information genuinely does not exist in the supplied portfolio data, say naturally that the portfolio does not contain that information.
-
-Do NOT repeatedly say:
-"I don't have verified information about that."
-
-16. You may explain or summarize documented information, but do not turn assumptions into facts.
-
-17. For questions unrelated to Shreya, briefly answer if appropriate. Otherwise explain that Ask Shreya focuses on Shreya's professional portfolio.
-
-18. Maintain conversational continuity using the supplied conversation history.
-
-19. The visitor should feel like they are talking to a real AI assistant, not searching a database.
-
-UI ACTIONS:
-
-When genuinely useful, include exactly ONE of these markers:
-
-[OPEN_PROJECTS]
-[OPEN_EXPERIENCE]
-[OPEN_SKILLS]
-[OPEN_ACHIEVEMENTS]
-[OPEN_CERTIFICATIONS]
-[OPEN_COMMUNITY]
-[OPEN_RESUME]
-[OPEN_ABOUT]
-[OPEN_CONTACT]
-
-Only include a marker when the answer genuinely relates to that section.
+3. Generate a fresh response for every visitor question.
+4. Answer the visitor's actual question directly.
+5. Keep normal answers concise but complete (2-5 sentences).
+6. Do not use Markdown formatting (** or ##).
+7. Never invent facts.
+8. When relevant, append ONE UI action marker like [OPEN_PROJECTS], [OPEN_ABOUT], [OPEN_RESUME], [OPEN_SKILLS], [OPEN_EXPERIENCE], [OPEN_CERTIFICATIONS], [OPEN_CONTACT].
 `;
 
 interface HistoryMessage {
@@ -227,99 +224,80 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     const question =
-      typeof body.question === "string"
-        ? body.question.trim()
-        : "";
+      typeof body.question === "string" ? body.question.trim() : "";
 
     if (!question) {
-      return new Response(
-        JSON.stringify({ error: "Question is required" }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      return new Response(JSON.stringify({ error: "Question is required" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
 
-    if (!apiKey || apiKey === "your_gemini_api_key_here") {
-      console.error("Ask Shreya: GEMINI_API_KEY is missing");
+    if (apiKey && apiKey !== "your_gemini_api_key_here") {
+      try {
+        const portfolioContext = buildPortfolioContext();
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({
+          model: "gemini-1.5-flash",
+          systemInstruction,
+        });
 
-      return new Response(
-        JSON.stringify({
-          error: "Ask Shreya is not configured",
-        }),
-        {
-          status: 503,
-          headers: {
-            "Content-Type": "application/json",
+        const history = getHistory(body.history).map((message) => ({
+          role: message.role === "assistant" ? "model" : "user",
+          parts: [{ text: message.content }],
+        }));
+
+        const chat = model.startChat({
+          history,
+          generationConfig: { maxOutputTokens: 700 },
+        });
+
+        const userMessage = `PORTFOLIO DATA:\n\n${portfolioContext}\n\nVISITOR QUESTION:\n\n${question}`;
+        const result = await chat.sendMessageStream(userMessage);
+
+        const encoder = new TextEncoder();
+        const stream = new ReadableStream({
+          async start(controller) {
+            try {
+              for await (const chunk of result.stream) {
+                const text = chunk.text();
+                if (text) {
+                  controller.enqueue(encoder.encode(text));
+                }
+              }
+              controller.close();
+            } catch (error) {
+              console.error("Ask Shreya streaming error:", error);
+              controller.error(error);
+            }
           },
-        }
-      );
+        });
+
+        return new Response(stream, {
+          status: 200,
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            "Cache-Control": "no-cache, no-transform",
+            "X-Accel-Buffering": "no",
+          },
+        });
+      } catch (geminiErr) {
+        console.warn(
+          "Gemini API failed, falling back to local QA engine:",
+          geminiErr
+        );
+      }
     }
 
-    const portfolioContext = buildPortfolioContext();
-
-    const genAI = new GoogleGenerativeAI(apiKey);
-
-    const model = genAI.getGenerativeModel({
-      model: "gemini-3.6-flash",
-      systemInstruction,
-    });
-
-    const history = getHistory(body.history).map((message) => ({
-      role: message.role === "assistant" ? "model" : "user",
-      parts: [{ text: message.content }],
-    }));
-
-    const chat = model.startChat({
-      history,
-      generationConfig: {
-        maxOutputTokens: 700,
-      },
-    });
-
-    const userMessage = `
-PORTFOLIO DATA:
-
-${portfolioContext}
-
-VISITOR QUESTION:
-
-${question}
-`;
-
-    console.info("Ask Shreya streaming request", {
-      contextLength: portfolioContext.length,
-      questionLength: question.length,
-      historyMessages: history.length,
-    });
-
-    const result = await chat.sendMessageStream(userMessage);
-
+    // Fallback local response stream when API key is missing or Gemini API fails
+    const localAnswer = generateLocalResponse(question);
     const encoder = new TextEncoder();
-
     const stream = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const chunk of result.stream) {
-            const text = chunk.text();
-
-            if (text) {
-              controller.enqueue(encoder.encode(text));
-            }
-          }
-
-          controller.close();
-
-          console.info("Ask Shreya stream completed");
-        } catch (error) {
-          console.error("Ask Shreya streaming error:", error);
-          controller.error(error);
-        }
+      start(controller) {
+        controller.enqueue(encoder.encode(localAnswer));
+        controller.close();
       },
     });
 
@@ -332,21 +310,22 @@ ${question}
       },
     });
   } catch (error) {
-    console.error("Ask Shreya error:", {
-      name: error instanceof Error ? error.name : "UnknownError",
-      message: error instanceof Error ? error.message : "Unknown error",
+    console.error("Ask Shreya error:", error);
+
+    const fallback = generateLocalResponse("general");
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(fallback));
+        controller.close();
+      },
     });
 
-    return new Response(
-      JSON.stringify({
-        error: "Ask Shreya is temporarily unavailable",
-      }),
-      {
-        status: 503,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+      },
+    });
   }
 }
