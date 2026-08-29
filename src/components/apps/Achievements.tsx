@@ -70,11 +70,19 @@ export default function Achievements() {
               </div>
               <div className="overflow-y-auto p-6 space-y-4">
                 {selectedAchievement.image && (
-                  <img
-                    src={selectedAchievement.image}
-                    alt={selectedAchievement.title}
-                    className="w-full rounded-lg mb-4 object-contain max-h-[40vh]"
-                  />
+                  selectedAchievement.image.toLowerCase().endsWith('.pdf') ? (
+                    <iframe
+                      src={`${selectedAchievement.image}#view=FitH`}
+                      title={selectedAchievement.title}
+                      className="w-full h-[45vh] rounded-lg mb-4 bg-white shadow-lg"
+                    />
+                  ) : (
+                    <img
+                      src={selectedAchievement.image}
+                      alt={selectedAchievement.title}
+                      className="w-full rounded-lg mb-4 object-contain max-h-[40vh]"
+                    />
+                  )
                 )}
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
