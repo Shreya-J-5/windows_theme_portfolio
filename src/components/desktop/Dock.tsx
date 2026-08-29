@@ -142,28 +142,32 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
           const isFocused = win?.isFocused && !win?.isMinimized;
           const IconComp = item.icon;
 
+          const isAskShreya = item.id === 'askshreya';
+
           return (
             <div key={item.id} className="relative flex flex-col items-center group">
               <button
                 onClick={() => handleAppClick(item.id)}
-                className={`relative h-10 rounded-md flex items-center justify-center transition-all ${
-                  item.id === 'askshreya' ? 'px-2.5 gap-1.5' : 'w-10'
+                className={`relative h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+                  isAskShreya ? 'px-3 gap-1.5 border border-purple-500/20 hover:border-purple-400/50 hover:bg-gradient-to-r hover:from-purple-600/30 hover:to-indigo-600/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.45)]' : 'w-10'
                 } ${
                   isFocused
-                    ? 'bg-white/15 shadow-inner'
+                    ? isAskShreya ? 'bg-purple-600/30 border-purple-400/60 shadow-[0_0_12px_rgba(168,85,247,0.4)]' : 'bg-white/15 shadow-inner scale-105'
                     : isOpen
-                    ? 'bg-white/8 hover:bg-white/12'
-                    : 'hover:bg-white/8'
+                    ? 'bg-white/8 hover:bg-white/14 hover:scale-105'
+                    : 'hover:bg-white/10 hover:scale-105'
                 }`}
                 title={item.label}
               >
                 <IconComp
-                  className={`w-5 h-5 transition-transform group-hover:scale-110 ${
-                    item.id === 'askshreya' ? 'text-purple-400' : 'text-white/90'
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    isAskShreya
+                      ? 'text-purple-300 group-hover:scale-125 group-hover:rotate-12 group-hover:text-yellow-300'
+                      : 'text-white/90 group-hover:scale-110 group-hover:text-white'
                   }`}
                 />
-                {item.id === 'askshreya' && (
-                  <span className="text-[11px] font-medium text-purple-200 hidden xs:inline sm:inline">
+                {isAskShreya && (
+                  <span className="text-[11px] font-medium text-purple-200 group-hover:text-white transition-colors hidden xs:inline sm:inline">
                     Ask Shreya
                   </span>
                 )}
@@ -173,7 +177,7 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
               <div
                 className={`absolute bottom-0.5 rounded-full transition-all duration-200 ${
                   isFocused
-                    ? 'w-4 h-[3px] bg-[#0078d4] shadow-[0_0_8px_#0078d4]'
+                    ? isAskShreya ? 'w-6 h-[3px] bg-purple-400 shadow-[0_0_8px_#a855f7]' : 'w-4 h-[3px] bg-[#0078d4] shadow-[0_0_8px_#0078d4]'
                     : isOpen
                     ? 'w-2 h-[3px] bg-white/60'
                     : 'w-0 h-[3px] bg-transparent'
