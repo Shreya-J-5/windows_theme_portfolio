@@ -92,7 +92,7 @@ export function Projects() {
             className="absolute inset-0 p-6 overflow-y-auto flex flex-col gap-5"
           >
             {/* Header & Controls Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#22222a] p-4 rounded-xl border border-white/8 shadow-md">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#22222a] p-4 rounded-xl shadow-md">
               <div>
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <Code2 className="text-[#0078d4] w-5 h-5" />
@@ -112,11 +112,11 @@ export function Projects() {
                     placeholder="Search projects..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-white placeholder-white/40 outline-none focus:border-[#0078d4] transition-colors"
+                    className="w-full pl-9 pr-3 py-1.5 bg-white/5 rounded-lg text-xs text-white placeholder-white/40 outline-none focus:bg-white/10 transition-colors"
                   />
                 </div>
 
-                <div className="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10 overflow-x-auto max-w-full">
+                <div className="flex items-center gap-1 bg-white/5 p-1 rounded-lg overflow-x-auto max-w-full">
                   {categories.map((cat) => (
                     <button
                       key={cat}
@@ -134,17 +134,17 @@ export function Projects() {
               </div>
             </div>
 
-            {/* Structured Executive List Rows */}
-            <div className="flex flex-col gap-2.5">
+            {/* Clean Seamless List Rows (No Description, No Outlines, Languages Only) */}
+            <div className="flex flex-col gap-2">
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
                   onClick={() => setSelectedProject(project.id)}
-                  className="group relative bg-[#202028] hover:bg-[#282834] border border-white/8 hover:border-[#0078d4]/50 rounded-xl p-4 transition-all duration-200 cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm hover:shadow-[0_4px_20px_rgba(0,120,212,0.15)]"
+                  className="group relative bg-[#202028] hover:bg-[#2a2a36] rounded-xl p-4 transition-all duration-200 cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm"
                 >
                   {/* Left Column: Category Icon + Project Name + Badges */}
-                  <div className="flex items-center gap-3.5 min-w-[240px] max-w-xs">
-                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#0078d4]/10 group-hover:border-[#0078d4]/30 transition-colors">
+                  <div className="flex items-center gap-3.5 min-w-[230px] max-w-xs">
+                    <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-[#0078d4]/15 transition-colors">
                       {getCategoryIcon(project.category)}
                     </div>
                     <div className="flex flex-col">
@@ -155,39 +155,29 @@ export function Projects() {
                         <span
                           className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
                             project.status === "Live"
-                              ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
-                              : "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                              ? "bg-emerald-500/20 text-emerald-300"
+                              : "bg-amber-500/20 text-amber-300"
                           }`}
                         >
                           {project.status}
                         </span>
                       </div>
-                      <span className="text-[11px] text-white/50 font-medium">
+                      <span className="text-[11px] text-white/40 font-medium">
                         {project.category}
                       </span>
                     </div>
                   </div>
 
-                  {/* Middle Column: Purpose & Stack Pills */}
-                  <div className="flex-1 min-w-0 flex flex-col gap-1.5">
-                    <p className="text-xs text-white/75 truncate max-w-xl">
-                      {project.purpose}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.stack.slice(0, 5).map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/60 border border-white/8 font-mono"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.stack.length > 5 && (
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono">
-                          +{project.stack.length - 5}
-                        </span>
-                      )}
-                    </div>
+                  {/* Middle Column: Languages Used Only */}
+                  <div className="flex-1 min-w-0 flex items-center gap-1.5 flex-wrap">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[11px] px-2.5 py-1 rounded-md bg-white/5 text-white/80 font-mono font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
 
                   {/* Right Column: Links & Details Action */}
@@ -200,7 +190,7 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/12 text-white/70 hover:text-white rounded-lg transition-colors border border-white/10"
+                        className="p-2 bg-white/5 hover:bg-white/15 text-white/70 hover:text-white rounded-lg transition-colors"
                         title="Source Code"
                       >
                         <Github size={15} />
@@ -211,7 +201,7 @@ export function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-2 bg-white/5 hover:bg-white/12 text-white/70 hover:text-white rounded-lg transition-colors border border-white/10"
+                        className="p-2 bg-white/5 hover:bg-white/15 text-white/70 hover:text-white rounded-lg transition-colors"
                         title="Live Demo"
                       >
                         <ExternalLink size={15} />
@@ -219,7 +209,7 @@ export function Projects() {
                     )}
                     <button
                       onClick={() => setSelectedProject(project.id)}
-                      className="flex items-center gap-1 px-3 py-1.5 bg-[#0078d4]/20 hover:bg-[#0078d4] text-[#0078d4] hover:text-white text-xs font-semibold rounded-lg transition-all border border-[#0078d4]/30"
+                      className="flex items-center gap-1 px-3.5 py-1.5 bg-[#0078d4]/20 hover:bg-[#0078d4] text-[#0078d4] hover:text-white text-xs font-semibold rounded-lg transition-all"
                     >
                       <span>Explore</span>
                       <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
@@ -229,7 +219,7 @@ export function Projects() {
               ))}
 
               {filteredProjects.length === 0 && (
-                <div className="p-12 text-center text-white/40 text-xs bg-white/5 rounded-xl border border-white/10">
+                <div className="p-12 text-center text-white/40 text-xs bg-white/5 rounded-xl">
                   No projects match your search criteria.
                 </div>
               )}
