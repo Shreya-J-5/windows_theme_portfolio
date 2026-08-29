@@ -9,7 +9,6 @@ import {
   Cpu,
   Trophy,
   Award,
-  Users,
   FileText,
   Terminal,
   Sparkles,

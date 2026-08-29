@@ -13,7 +13,6 @@ import {
   Globe,
   Terminal as TerminalIcon,
   Layers,
-  CheckCircle2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowStore } from "@/store/windowStore";

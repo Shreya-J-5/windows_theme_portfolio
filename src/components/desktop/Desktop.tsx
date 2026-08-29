@@ -17,7 +17,6 @@ import {
   Cpu,
   Trophy,
   Award,
-  Users,
   Terminal,
   Sparkles,
   Trash2,

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronLeft, Sparkles, User, Briefcase, Code, Cpu, Trophy, Award, Users, Image, FileText, Mail, TerminalSquare } from 'lucide-react';
+import { ChevronLeft, Sparkles, User, Briefcase, Code, Cpu, Trophy, Award, Image, FileText, Mail, TerminalSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { About } from '../apps/About';
