@@ -11,7 +11,6 @@ import { Experience } from "@/components/apps/Experience";
 import Skills from "@/components/apps/Skills";
 import Achievements from "@/components/apps/Achievements";
 import Certifications from "@/components/apps/Certifications";
-import Community from "@/components/apps/Community";
 import Photos from "@/components/apps/Photos";
 import Resume from "@/components/apps/Resume";
 import Contact from "@/components/apps/Contact";
@@ -26,7 +25,6 @@ const APP_COMPONENTS: Record<string, React.ComponentType> = {
   Skills,
   Achievements,
   Certifications,
-  Community,
   Photos,
   Resume,
   Contact,

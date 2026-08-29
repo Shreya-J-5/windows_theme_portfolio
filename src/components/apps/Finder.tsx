@@ -11,7 +11,6 @@ const SIDEBAR_ITEMS = [
   { id: "skills", label: "Skills", icon: "Code" },
   { id: "achievements", label: "Achievements", icon: "Trophy" },
   { id: "certifications", label: "Education", icon: "Award" },
-  { id: "community", label: "Community", icon: "Users" },
   { id: "photos", label: "Photos", icon: "Image" },
   { id: "resume", label: "Resume", icon: "File" },
   { id: "contact", label: "Contact", icon: "Mail" },

@@ -292,11 +292,6 @@ export default function AskShreya() {
         label: "Open Certifications",
       },
 
-      "[OPEN_COMMUNITY]": {
-        id: "community",
-        label: "Open Community",
-      },
-
       "[OPEN_RESUME]": {
         id: "resume",
         label: "Open Resume",

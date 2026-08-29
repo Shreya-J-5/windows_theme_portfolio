@@ -8,7 +8,6 @@ import {
   skills,
   achievements,
   certifications,
-  events,
 } from "@/data/portfolioData";
 
 export const runtime = "nodejs";
@@ -77,14 +76,6 @@ ${certifications
   .map(
     (certification) =>
       `- ${certification.title} — ${certification.issuer} (${certification.issued})`
-  )
-  .join("\n")}`,
-
-    `COMMUNITY & EVENTS:
-${events
-  .map(
-    (event) =>
-      `- ${event.name} at ${event.location}. Themes: ${event.themes.join(", ")}.`
   )
   .join("\n")}`,
 

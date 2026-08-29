@@ -10,7 +10,6 @@ import { Projects } from '../apps/Projects';
 import Skills from '../apps/Skills';
 import Achievements from '../apps/Achievements';
 import Certifications from '../apps/Certifications';
-import Community from '../apps/Community';
 import Photos from '../apps/Photos';
 import Resume from '../apps/Resume';
 import Contact from '../apps/Contact';
@@ -24,7 +23,6 @@ const MOBILE_APPS: Record<string, { component: React.ComponentType; label: strin
   skills: { component: Skills, label: 'Skills', icon: <Cpu size={22} /> },
   achievements: { component: Achievements, label: 'Achievements', icon: <Trophy size={22} /> },
   certifications: { component: Certifications, label: 'Certifications', icon: <Award size={22} /> },
-  community: { component: Community, label: 'Community', icon: <Users size={22} /> },
   photos: { component: Photos, label: 'Photos', icon: <Image size={22} /> },
   resume: { component: Resume, label: 'Resume', icon: <FileText size={22} /> },
   contact: { component: Contact, label: 'Contact', icon: <Mail size={22} /> },
@@ -32,7 +30,7 @@ const MOBILE_APPS: Record<string, { component: React.ComponentType; label: strin
   askshreya: { component: AskShreya, label: 'Ask Shreya', icon: <Sparkles size={22} /> },
 };
 
-const APP_ORDER = ['about', 'projects', 'experience', 'skills', 'achievements', 'certifications', 'community', 'photos', 'resume', 'contact', 'terminal'];
+const APP_ORDER = ['about', 'projects', 'experience', 'skills', 'achievements', 'certifications', 'photos', 'resume', 'contact', 'terminal'];
 
 export default function MobileLayout() {
   const [activeApp, setActiveApp] = useState<string | null>(null);

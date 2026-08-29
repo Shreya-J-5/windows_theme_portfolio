@@ -90,7 +90,6 @@ const APP_DEFINITIONS: Omit<
   { id: "skills", title: "Skills", icon: "cpu", width: 820, height: 560, component: "Skills" },
   { id: "achievements", title: "Achievements", icon: "trophy", width: 880, height: 580, component: "Achievements" },
   { id: "certifications", title: "Education", icon: "award", width: 900, height: 600, component: "Certifications" },
-  { id: "community", title: "Community", icon: "users", width: 880, height: 580, component: "Community" },
   { id: "photos", title: "Photos", icon: "image", width: 900, height: 620, component: "Photos" },
   { id: "resume", title: "Resume", icon: "file-text", width: 800, height: 640, component: "Resume" },
   { id: "contact", title: "Contact", icon: "mail", width: 600, height: 450, component: "Contact" },

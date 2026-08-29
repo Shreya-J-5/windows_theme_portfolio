@@ -35,7 +35,6 @@ const TASKBAR_ITEMS = [
   { id: 'skills', label: 'Skills', accent: '#00cc6a', icon: Cpu },
   { id: 'achievements', label: 'Achievements', accent: '#f7630c', icon: Trophy },
   { id: 'certifications', label: 'Education', accent: '#ff8c00', icon: Award },
-  { id: 'community', label: 'Community', accent: '#0078d4', icon: Users },
   { id: 'resume', label: 'Resume', accent: '#e74856', icon: FileText },
   { id: 'terminal', label: 'Windows Terminal', accent: '#0078d4', icon: Terminal },
   { id: 'askshreya', label: 'Ask Shreya', accent: '#8764ff', icon: Sparkles },

@@ -127,17 +127,6 @@ const DESKTOP_ICONS = [
     action: 'certifications',
   },
   {
-    id: 'community',
-    label: 'Community',
-    isShortcut: true,
-    icon: (
-      <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
-        <Users className="w-6 h-6 text-white" />
-      </div>
-    ),
-    action: 'community',
-  },
-  {
     id: 'terminal',
     label: 'Windows Terminal',
     isShortcut: true,

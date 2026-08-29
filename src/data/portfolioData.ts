@@ -72,14 +72,6 @@ export interface Certification {
   image?: string;
 }
 
-export interface CommunityEvent {
-  name: string;
-  location: string;
-  themes: string[];
-  team?: string;
-  image?: string;
-}
-
 // ─── PROFILE ────────────────────────────────────────────────────────────────
 
 export const profile: Profile = {
@@ -647,21 +639,6 @@ export const certifications: Certification[] = [
   },
 ];
 
-// ─── COMMUNITY EVENTS ───────────────────────────────────────────────────────
-
-export const events: CommunityEvent[] = [
-  {
-    name: "Technical Hackathons",
-    location: "Various, India",
-    themes: ["AI", "Machine Learning", "Full-Stack", "Problem Solving"],
-  },
-  {
-    name: "Creative Coding Challenges",
-    location: "Online",
-    themes: ["Design", "Frontend", "Animation", "Innovation"],
-  },
-];
-
 // ─── ALL GALLERY IMAGES ─────────────────────────────────────────────────────
 
 export const galleryImages: { src: string; label: string }[] = [];
@@ -732,12 +709,6 @@ export const searchIndex: SearchItem[] = [
     appId: "certifications",
     keywords: [c.title, c.issuer, c.issued].map((k) => k.toLowerCase()),
   })),
-  ...events.map((e) => ({
-    title: e.name,
-    category: "Event",
-    appId: "community",
-    keywords: [e.name, e.location, ...e.themes].map((k) => k.toLowerCase()),
-  })),
   {
     title: "Shreya Jolapara",
     category: "Profile",
@@ -797,7 +768,5 @@ export const portfolioData = {
   skills,
   achievements,
   certifications,
-  community: events,
-  events,
   galleryImages,
 };
