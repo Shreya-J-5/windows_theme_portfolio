@@ -146,7 +146,9 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
             <div key={item.id} className="relative flex flex-col items-center group">
               <button
                 onClick={() => handleAppClick(item.id)}
-                className={`relative w-10 h-10 rounded-md flex items-center justify-center transition-all ${
+                className={`relative h-10 rounded-md flex items-center justify-center transition-all ${
+                  item.id === 'askshreya' ? 'px-2.5 gap-1.5' : 'w-10'
+                } ${
                   isFocused
                     ? 'bg-white/15 shadow-inner'
                     : isOpen
@@ -160,6 +162,11 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
                     item.id === 'askshreya' ? 'text-purple-400' : 'text-white/90'
                   }`}
                 />
+                {item.id === 'askshreya' && (
+                  <span className="text-[11px] font-medium text-purple-200 hidden xs:inline sm:inline">
+                    Ask Shreya
+                  </span>
+                )}
               </button>
 
               {/* Windows 11 Active App Indicator Bar */}
