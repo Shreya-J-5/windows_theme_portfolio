@@ -114,7 +114,7 @@ export const experience: Experience[] = [
       "Collaborated with cross-functional teams to deliver digital solutions within requirements and deadlines",
       "Applied UI/UX and digital platform knowledge to improve user-focused experiences",
     ],
-    logo: "/assets/experience/logos/cocomo.jpg",
+    logo: "/assets/experience/logos/cocomo.png",
   },
   {
     role: "Freelance Graphic Designer and Video Editor",

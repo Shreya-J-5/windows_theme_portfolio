@@ -22,11 +22,11 @@ export function Experience() {
               <div className="flex flex-col md:flex-row gap-6">
                 
                 {/* Logo Area */}
-                <div className="w-16 h-16 rounded-xl bg-white p-2 shrink-0 flex items-center justify-center border border-white/20">
+                <div className="w-16 h-16 rounded-xl bg-black/40 p-1.5 shrink-0 flex items-center justify-center border border-white/20 overflow-hidden shadow-inner">
                   {exp.logo ? (
-                    <img src={exp.logo} alt={exp.organization} className="max-w-full max-h-full object-contain" />
+                    <img src={exp.logo} alt={exp.organization} className="w-full h-full object-cover rounded-lg" />
                   ) : (
-                    <Building2 className="text-gray-800" size={32} />
+                    <Building2 className="text-white/60" size={28} />
                   )}
                 </div>
 
