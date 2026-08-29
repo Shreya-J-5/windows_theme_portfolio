@@ -614,13 +614,6 @@ export const achievements: Achievement[] = [
     scale: "Enrollment & Academic Verification",
     image: "/assets/certifications/aiml-university-certificate.jpg",
   },
-  {
-    title: "Airline Management System SRS Specification",
-    organization: "LJ University",
-    track: "Software Engineering & System Architecture",
-    scale: "SRS Academic Documentation",
-    image: "/assets/certifications/airline-management-srs.jpg",
-  },
 ];
 
 // ─── CERTIFICATIONS ─────────────────────────────────────────────────────────
@@ -667,13 +660,6 @@ export const certifications: Certification[] = [
     issued: "2024 – Present",
     credentialId: "Enrollment & Academic Verification",
     image: "/assets/certifications/aiml-university-certificate.jpg",
-  },
-  {
-    title: "Airline Management System SRS",
-    issuer: "LJ University Academic Project",
-    issued: "2025",
-    credentialId: "Software Requirements Specification",
-    image: "/assets/certifications/airline-management-srs.jpg",
   },
 ];
 
