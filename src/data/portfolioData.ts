@@ -257,22 +257,6 @@ export const projects: Project[] = [
     screenshots: [],
   },
   {
-    id: "mom-birthday-card",
-    name: "Mom's Birthday Card",
-    status: "Live",
-    category: "Frontend / Interactive",
-    purpose:
-      "Interactive personal birthday card website featuring custom animations, photo display, and celebratory particle effects.",
-    github: "https://github.com/Shreya-J-5/mom_birthday_card",
-    stack: ["JavaScript", "HTML5", "CSS3", "Canvas API", "CSS Animations"],
-    facts: [
-      "Interactive card flipping and audio background",
-      "Particle confetti and celebration effects",
-      "Responsive design for mobile and web views",
-    ],
-    screenshots: [],
-  },
-  {
     id: "cocomo-media-workspace",
     name: "Cocomo Media Workspace",
     status: "Live",
