@@ -103,19 +103,19 @@ function generateLocalResponse(question: string): string {
   const q = question.toLowerCase();
 
   if (q.includes("hire") || q.includes("why should") || q.includes("why hire")) {
-    return "Here is why Shreya would be a fantastic addition to your engineering team:\n\n1. Real-World AI & Full-Stack Capabilities: She doesn't just study AI/ML at LJ University—she builds and deploys production-ready apps like ScamShield (AI Phishing Detector) and Fyro (24/7 Discord bot).\n2. Technical Versatility: Fluent in Python, React, Next.js, TypeScript, Django, Docker, and PostgreSQL.\n3. Initiative & Growth: 19+ verified public projects demonstrating strong problem-solving, clean architecture, and continuous learning.\n\nTake a look at her projects or about profile to learn more! [OPEN_PROJECTS] [OPEN_ABOUT]";
+    return "Here is why Shreya stands out:\n\n• Hands-On Builder: 19+ real projects across AI/ML, full-stack web, and cloud APIs.\n• Proven Tech Stack: Python, React, Next.js, Django, Docker, and PostgreSQL.\n• Driven & Versatile: Loves tackling complex problems and writing clean, scalable code.\n\nCheck out her work to see what she can do! [OPEN_PROJECTS] [OPEN_ABOUT]";
   }
 
   if (q.includes("project") || q.includes("built") || q.includes("work")) {
-    return "Shreya has built 19 verified projects spanning AI/ML, Full-Stack Development, and DevOps:\n\n• ScamShield: AI-powered phishing & scam detection platform\n• Fyro: Production-grade 24/7 Discord music bot\n• PaletteLens: Color analysis & design tool\n• National Job Market Forecaster: AI analytics platform\n\nWould you like to explore her full project gallery? [OPEN_PROJECTS]";
+    return "Shreya has built 19 public projects across AI security, web apps, and backend tools:\n\n• ScamShield: AI phishing and scam detector\n• Fyro: 24/7 Discord music bot with Spotify integration\n• PaletteLens: Smart color analytics platform\n• Job Forecaster: AI market demand analytics\n\nTap below to explore all projects! [OPEN_PROJECTS]";
   }
 
   if (q.includes("scamshield") || q.includes("phishing") || q.includes("scam")) {
-    return "ScamShield is an AI security platform designed by Shreya that detects phishing URLs, malicious links, and scam content in real-time using custom NLP and Machine Learning models. [OPEN_PROJECTS]";
+    return "ScamShield is an AI security app Shreya built to catch phishing links and online scams in real time using NLP and Machine Learning. [OPEN_PROJECTS]";
   }
 
   if (q.includes("fyro") || q.includes("music") || q.includes("bot")) {
-    return "Fyro is a high-availability Discord music bot created by Shreya with custom audio stream resolving, Spotify metadata integration, multi-guild queues, and PostgreSQL/Redis backend architecture. [OPEN_PROJECTS]";
+    return "Fyro is a 24/7 Discord music bot Shreya created with custom audio stream resolving, Spotify metadata, multi-server queues, and Redis cache. [OPEN_PROJECTS]";
   }
 
   if (
@@ -124,7 +124,7 @@ function generateLocalResponse(question: string): string {
     q.includes("technology") ||
     q.includes("languages")
   ) {
-    return "Shreya's technical stack includes:\n\n• AI & Machine Learning: Python, TensorFlow, Scikit-learn, OpenCV, NLP\n• Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS\n• Backend & DevOps: Django, Flask, Node.js, Docker, REST APIs, PostgreSQL\n• Programming: Python, Java, C++, JavaScript\n\nCheck out her full skills breakdown! [OPEN_SKILLS]";
+    return "Here is a quick look at Shreya's tech stack:\n\n• AI & ML: Python, TensorFlow, Scikit-learn, OpenCV\n• Frontend: React, Next.js, TypeScript, Tailwind CSS\n• Backend & DevOps: Django, Flask, Node.js, Docker, PostgreSQL\n• Languages: Python, Java, C++, JavaScript\n\nExplore her full skills breakdown! [OPEN_SKILLS]";
   }
 
   if (
@@ -132,11 +132,11 @@ function generateLocalResponse(question: string): string {
     q.includes("internship") ||
     q.includes("role")
   ) {
-    return "Shreya has hands-on experience developing full-stack web applications, AI integrations, data analytics pipelines, and containerized microservices through technical internships and capstone projects. [OPEN_EXPERIENCE]";
+    return "Shreya has worked on full-stack web applications, AI integrations, data pipelines, and containerized backend microservices through hands-on projects and internships. [OPEN_EXPERIENCE]";
   }
 
   if (q.includes("resume") || q.includes("cv") || q.includes("pdf")) {
-    return "You can view and download Shreya's complete resume PDF directly within the portfolio viewer! [OPEN_RESUME]";
+    return "You can view and download Shreya's updated resume right here in the portfolio! [OPEN_RESUME]";
   }
 
   if (
@@ -145,7 +145,7 @@ function generateLocalResponse(question: string): string {
     q.includes("award") ||
     q.includes("win")
   ) {
-    return "Shreya actively participates in competitive hackathons and coding challenges, building innovative AI and full-stack solutions. [OPEN_ACHIEVEMENTS]";
+    return "Shreya loves building at hackathons and coding challenges, placing as a finalist and winner in competitive tech events. [OPEN_ACHIEVEMENTS]";
   }
 
   if (
@@ -156,7 +156,7 @@ function generateLocalResponse(question: string): string {
     q.includes("university") ||
     q.includes("college")
   ) {
-    return "Shreya is pursuing her B.Tech in Artificial Intelligence & Machine Learning at LJ University. She holds certifications from Google, IBM, Coursera, and UPenn in Python, Data Science, AI, and Java. [OPEN_CERTIFICATIONS]";
+    return "Shreya is pursuing her B.Tech in AI & ML at LJ University. She holds verified certificates from Google, IBM, Coursera, and UPenn in Python, Data Science, and Java. [OPEN_CERTIFICATIONS]";
   }
 
   if (
@@ -166,7 +166,7 @@ function generateLocalResponse(question: string): string {
     q.includes("github") ||
     q.includes("linkedin")
   ) {
-    return "You can reach Shreya directly via:\n\n• Email: shreyajolapara@gmail.com\n• GitHub: github.com/Shreya-J-5\n• LinkedIn: Shreya Jolapara\n\nClick below to open her contact form! [OPEN_CONTACT]";
+    return "Let's connect! You can reach Shreya here:\n\n• Email: shreyajolapara@gmail.com\n• GitHub: github.com/Shreya-J-5\n• LinkedIn: Shreya Jolapara\n\nClick below to open her contact panel! [OPEN_CONTACT]";
   }
 
   if (
@@ -175,10 +175,10 @@ function generateLocalResponse(question: string): string {
     q.includes("hey") ||
     q.includes("who are you")
   ) {
-    return "Hey there! I'm Ask Shreya, her portfolio assistant. Feel free to ask about her 19+ projects, AI/ML skills, education at LJ University, or why she'd be a great fit for your team! [OPEN_ABOUT]";
+    return "Hey there! I'm Ask Shreya, her portfolio assistant. Feel free to ask about her 19+ projects, AI/ML skills, or why she'd be a great fit for your team! [OPEN_ABOUT]";
   }
 
-  return `Shreya Jolapara is an AI/ML student at LJ University and Full-Stack Developer with 19 verified projects across AI security, Discord bots, web dashboards, and API microservices.\n\nFeel free to ask about her stack, projects, or view her resume! [OPEN_PROJECTS]`;
+  return `Shreya Jolapara is an AI & ML student at LJ University and Full-Stack Developer with 19+ projects in AI security, web apps, and APIs.\n\nFeel free to ask about her work or view her resume! [OPEN_PROJECTS]`;
 }
 
 const systemInstruction = `
