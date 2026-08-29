@@ -1,14 +1,29 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { ProjectDetail } from "./ProjectDetail";
-import { Github, ExternalLink } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  Search,
+  ArrowRight,
+  Code2,
+  Sparkles,
+  Bot,
+  Globe,
+  Terminal as TerminalIcon,
+  Layers,
+  CheckCircle2,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowStore } from "@/store/windowStore";
 
 export function Projects() {
   const { projects } = portfolioData;
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const subRoute = useWindowStore((state) => state.windows.projects?.subRoute);
   const setSubRoute = useWindowStore((state) => state.setSubRoute);
 
@@ -18,95 +33,210 @@ export function Projects() {
     }
   }, [subRoute, projects]);
 
-  const activeProject = projects.find(p => p.id === selectedProject);
+  const activeProject = projects.find((p) => p.id === selectedProject);
+
+  // Extract unique category tags
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    set.add("All");
+    projects.forEach((p) => {
+      if (p.category.includes("AI")) set.add("AI & Security");
+      else if (p.category.includes("Discord") || p.category.includes("Bot")) set.add("Bots & Tools");
+      else if (p.category.includes("Full-Stack")) set.add("Full-Stack");
+      else if (p.category.includes("Frontend")) set.add("Frontend");
+      else set.add("Systems & DevOps");
+    });
+    return Array.from(set);
+  }, [projects]);
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter((p) => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch =
+        !q ||
+        p.name.toLowerCase().includes(q) ||
+        p.purpose.toLowerCase().includes(q) ||
+        p.stack.some((s) => s.toLowerCase().includes(q));
+
+      if (!matchesSearch) return false;
+      if (activeCategory === "All") return true;
+      if (activeCategory === "AI & Security") return p.category.includes("AI");
+      if (activeCategory === "Bots & Tools") return p.category.includes("Discord") || p.category.includes("Bot");
+      if (activeCategory === "Full-Stack") return p.category.includes("Full-Stack");
+      if (activeCategory === "Frontend") return p.category.includes("Frontend");
+      if (activeCategory === "Systems & DevOps")
+        return !p.category.includes("AI") && !p.category.includes("Discord") && !p.category.includes("Full-Stack") && !p.category.includes("Frontend");
+
+      return true;
+    });
+  }, [projects, searchQuery, activeCategory]);
+
+  const getCategoryIcon = (category: string) => {
+    if (category.includes("AI") || category.includes("Security")) return <Sparkles size={16} className="text-purple-400" />;
+    if (category.includes("Discord") || category.includes("Bot")) return <Bot size={16} className="text-indigo-400" />;
+    if (category.includes("Full-Stack")) return <Layers size={16} className="text-cyan-400" />;
+    if (category.includes("Frontend")) return <Globe size={16} className="text-amber-400" />;
+    return <TerminalIcon size={16} className="text-emerald-400" />;
+  };
 
   return (
-    <div className="h-full relative overflow-hidden bg-[#1e1e1e]">
+    <div className="h-full relative overflow-hidden bg-[#18181c] text-gray-200">
       <AnimatePresence mode="wait">
         {!selectedProject ? (
-          <motion.div 
-            key="grid"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+          <motion.div
+            key="list"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 p-6 overflow-y-auto"
+            className="absolute inset-0 p-6 overflow-y-auto flex flex-col gap-5"
           >
-            <div className="max-w-[1180px] mx-auto">
-              <h2 className="sr-only">Projects</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6">
-                {projects.map((project) => (
-                  <div 
-                    key={project.id}
-                    className="w-full max-w-[360px] bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition-all cursor-pointer group hover:shadow-2xl hover:shadow-white/5 flex flex-col h-full"
-                    onClick={() => setSelectedProject(project.id)}
-                  >
-                    <div className="h-48 relative bg-gradient-to-br from-gray-800 to-black overflow-hidden">
-                      {project.screenshots[0] ? (
-                        <img 
-                          src={project.screenshots[0].src}
-                          alt={project.name} 
-                          className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 flex items-center justify-center">
-                          <span className="text-4xl opacity-20 font-bold">{project.name.charAt(0)}</span>
-                        </div>
-                      )}
-                      
-                      <div className="absolute top-4 right-4">
-                        <span className={`px-2 py-1 rounded text-xs font-semibold backdrop-blur-md shadow-lg ${
-                          project.status === "Live" ? "bg-green-500/20 text-green-300 border border-green-500/30" :
-                          project.status === "WIP" ? "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30" :
-                          "bg-gray-500/40 text-gray-200 border border-gray-500/30"
-                        }`}>
+            {/* Header & Controls Bar */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#22222a] p-4 rounded-xl border border-white/8 shadow-md">
+              <div>
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Code2 className="text-[#0078d4] w-5 h-5" />
+                  Software Projects
+                </h2>
+                <p className="text-xs text-white/50 mt-0.5">
+                  Showing {filteredProjects.length} of {projects.length} verified projects
+                </p>
+              </div>
+
+              {/* Search & Filters */}
+              <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                <div className="relative flex-1 md:w-56">
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+                  <input
+                    type="text"
+                    placeholder="Search projects..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-9 pr-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-white placeholder-white/40 outline-none focus:border-[#0078d4] transition-colors"
+                  />
+                </div>
+
+                <div className="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10 overflow-x-auto max-w-full">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className={`px-3 py-1 rounded-md text-[11px] font-medium transition-all whitespace-nowrap ${
+                        activeCategory === cat
+                          ? "bg-[#0078d4] text-white shadow"
+                          : "text-white/60 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Structured Executive List Rows */}
+            <div className="flex flex-col gap-2.5">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => setSelectedProject(project.id)}
+                  className="group relative bg-[#202028] hover:bg-[#282834] border border-white/8 hover:border-[#0078d4]/50 rounded-xl p-4 transition-all duration-200 cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm hover:shadow-[0_4px_20px_rgba(0,120,212,0.15)]"
+                >
+                  {/* Left Column: Category Icon + Project Name + Badges */}
+                  <div className="flex items-center gap-3.5 min-w-[240px] max-w-xs">
+                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#0078d4]/10 group-hover:border-[#0078d4]/30 transition-colors">
+                      {getCategoryIcon(project.category)}
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-sm font-bold text-white group-hover:text-[#0078d4] transition-colors">
+                          {project.name}
+                        </h3>
+                        <span
+                          className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
+                            project.status === "Live"
+                              ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                              : "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                          }`}
+                        >
                           {project.status}
                         </span>
                       </div>
-                      <div className="absolute bottom-4 left-4">
-                        <span className="px-2 py-1 bg-black/60 backdrop-blur-md rounded text-xs text-white/90 border border-white/10">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-5 flex flex-col flex-1">
-                      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">{project.name}</h3>
-                      <p className="text-sm text-white/60 mb-4 line-clamp-2 flex-1">{project.purpose}</p>
-                      
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.stack.slice(0, 4).map(tech => (
-                          <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/70 border border-white/5">
-                            {tech}
-                          </span>
-                        ))}
-                        {project.stack.length > 4 && (
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/50">
-                            +{project.stack.length - 4}
-                          </span>
-                        )}
-                      </div>
-                      
-                      <div className="flex gap-2 mt-auto" onClick={(e) => e.stopPropagation()}>
-                        {project.github && (
-                          <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} source`} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-white/80 hover:text-white">
-                            <Github size={16} />
-                          </a>
-                        )}
-                        {project.demo && (
-                          <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} demo`} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-white/80 hover:text-white">
-                            <ExternalLink size={16} />
-                          </a>
-                        )}
-                      </div>
+                      <span className="text-[11px] text-white/50 font-medium">
+                        {project.category}
+                      </span>
                     </div>
                   </div>
-                ))}
-              </div>
+
+                  {/* Middle Column: Purpose & Stack Pills */}
+                  <div className="flex-1 min-w-0 flex flex-col gap-1.5">
+                    <p className="text-xs text-white/75 truncate max-w-xl">
+                      {project.purpose}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.slice(0, 5).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/60 border border-white/8 font-mono"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.stack.length > 5 && (
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono">
+                          +{project.stack.length - 5}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Links & Details Action */}
+                  <div
+                    className="flex items-center gap-2 shrink-0 self-end md:self-center"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 bg-white/5 hover:bg-white/12 text-white/70 hover:text-white rounded-lg transition-colors border border-white/10"
+                        title="Source Code"
+                      >
+                        <Github size={15} />
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 bg-white/5 hover:bg-white/12 text-white/70 hover:text-white rounded-lg transition-colors border border-white/10"
+                        title="Live Demo"
+                      >
+                        <ExternalLink size={15} />
+                      </a>
+                    )}
+                    <button
+                      onClick={() => setSelectedProject(project.id)}
+                      className="flex items-center gap-1 px-3 py-1.5 bg-[#0078d4]/20 hover:bg-[#0078d4] text-[#0078d4] hover:text-white text-xs font-semibold rounded-lg transition-all border border-[#0078d4]/30"
+                    >
+                      <span>Explore</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              {filteredProjects.length === 0 && (
+                <div className="p-12 text-center text-white/40 text-xs bg-white/5 rounded-xl border border-white/10">
+                  No projects match your search criteria.
+                </div>
+              )}
             </div>
           </motion.div>
         ) : (
-          <motion.div 
+          <motion.div
             key="detail"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -115,10 +245,10 @@ export function Projects() {
             className="absolute inset-0 overflow-y-auto"
           >
             {activeProject && (
-              <ProjectDetail 
-                project={activeProject} 
+              <ProjectDetail
+                project={activeProject}
                 onBack={() => {
-                  setSubRoute('projects');
+                  setSubRoute("projects");
                   setSelectedProject(null);
                 }}
               />
