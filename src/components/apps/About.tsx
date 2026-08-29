@@ -12,7 +12,7 @@ export function About() {
       <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
         <div className="w-40 h-40 rounded-3xl overflow-hidden shadow-2xl shrink-0 border border-white/20 bg-white/5">
           <img 
-            src="/assets/profile/profilepic.jpg" 
+            src="/assets/profile/shreya_pfp.png" 
             alt={profile.name}
             className="w-full h-full object-cover"
           />

@@ -1,7 +1,7 @@
 # Portfolio Asset Manifest
 
 ## Existing assets supplied
-- profilepic.jpg
+- shreya_pfp.png
 - Shreya_Resume_.pdf
 - asis meet.jpg
 - iit.jpg
