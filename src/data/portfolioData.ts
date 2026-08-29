@@ -85,9 +85,9 @@ export interface CommunityEvent {
 export const profile: Profile = {
   name: "Shreya Jolapara",
   headline:
-    "AI/ML Student | Full-Stack Developer | Python | React | Machine Learning | TypeScript | Java | Creative Designer",
+    "AI/ML Student | Full-Stack Developer | Creative Designer",
   summary:
-    "AI/ML student focused on building intelligent, scalable, and practical software solutions through machine learning and full-stack development. Portfolio spans AI-powered security tools, Discord music bots, color analysis platforms, employment analytics, and Minecraft plugins. Passionate about UI/UX design with expertise in Adobe Creative Suite, Figma, and Blender.",
+    "Building intelligent AI models, full-stack web platforms, and intuitive digital designs.",
   education: {
     degree: "B.Tech in Artificial Intelligence & Machine Learning",
     institution: "LJ University",
