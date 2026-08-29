@@ -58,8 +58,14 @@ export function Finder() {
           {SIDEBAR_ITEMS.map((item) => (
             <div
               key={item.id}
-              onClick={() => handleSidebarClick(item.id)}
-              onDoubleClick={() => handleFolderDoubleClick(item.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleSidebarClick(item.id);
+              }}
+              onDoubleClick={(e) => {
+                e.stopPropagation();
+                handleFolderDoubleClick(item.id);
+              }}
               className={`flex items-center gap-2.5 px-3 py-1.5 rounded cursor-pointer text-xs font-medium transition-colors ${
                 activeSection === item.id ? "bg-white/10 text-white" : "hover:bg-white/5 text-gray-300"
               }`}
@@ -104,8 +110,14 @@ export function Finder() {
                 <div
                   key={item.id}
                   className="flex flex-col items-center gap-2 cursor-pointer p-3 rounded hover:bg-white/5 transition-all group"
-                  onClick={() => handleSidebarClick(item.id)}
-                  onDoubleClick={() => handleFolderDoubleClick(item.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSidebarClick(item.id);
+                  }}
+                  onDoubleClick={(e) => {
+                    e.stopPropagation();
+                    handleFolderDoubleClick(item.id);
+                  }}
                 >
                   <div className="w-12 h-12 rounded flex items-center justify-center text-[#0078d4] group-hover:scale-105 transition-transform">
                     {renderIcon(item.icon, 32)}
@@ -126,8 +138,11 @@ export function Finder() {
               </h3>
               <p className="text-xs text-gray-400 mb-4">Double click to open application.</p>
               <button 
-                className="px-4 py-2 bg-[#0078d4] hover:bg-[#1a86d9] text-white rounded text-xs font-medium transition-colors"
-                onClick={() => handleFolderDoubleClick(activeSection)}
+                className="px-4 py-2 bg-[#0078d4] hover:bg-[#1a86d9] text-white rounded text-xs font-medium transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFolderDoubleClick(activeSection);
+                }}
               >
                 Open
               </button>

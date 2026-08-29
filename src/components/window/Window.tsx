@@ -128,7 +128,7 @@ export function Window({ windowId, children }: WindowProps) {
       initial={{ scale: 0.88, opacity: 0, filter: "blur(4px)" }}
       animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
       transition={{ type: "spring", stiffness: 400, damping: 30, duration: 0.2 }}
-      onClick={() => focusApp(windowId)}
+      onMouseDown={() => focusApp(windowId)}
     >
       {/* Title bar */}
       <div
