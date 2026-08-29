@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Wallpaper from './Wallpaper';
-import MenuBar from './MenuBar';
 import DesktopIcon from './DesktopIcon';
 import DesktopIdentity from './DesktopIdentity';
 import Dock from './Dock';
@@ -10,18 +9,156 @@ import BootScreen from './BootScreen';
 import WindowManager from '@/components/window/WindowManager';
 import GlobalSearch from '@/components/search/GlobalSearch';
 import { useWindowStore } from '@/store/windowStore';
-import { Folder, Code, FileText, User, Trophy, Award, Users, Terminal, Sparkles } from 'lucide-react';
+import {
+  Folder,
+  Code,
+  FileText,
+  User,
+  Cpu,
+  Trophy,
+  Award,
+  Users,
+  Terminal,
+  Sparkles,
+  Trash2,
+  Laptop,
+} from 'lucide-react';
 
 const DESKTOP_ICONS = [
-  { id: 'finder', label: 'File Explorer', accent: '#f5c542', icon: <Folder className="text-yellow-400 w-10 h-10" /> },
-  { id: 'projects', label: 'Projects', accent: '#00b7c3', icon: <Code className="text-cyan-400 w-10 h-10" /> },
-  { id: 'resume', label: 'Resume.pdf', accent: '#e74856', icon: <FileText className="text-red-400 w-10 h-10" /> },
-  { id: 'about', label: 'About Me', accent: '#0078d4', icon: <User className="text-blue-400 w-10 h-10" /> },
-  { id: 'achievements', label: 'Achievements', accent: '#f7630c', icon: <Trophy className="text-orange-400 w-10 h-10" /> },
-  { id: 'certifications', label: 'Education', accent: '#ff8c00', icon: <Award className="text-amber-400 w-10 h-10" /> },
-  { id: 'community', label: 'Community', accent: '#0078d4', icon: <Users className="text-blue-400 w-10 h-10" /> },
-  { id: 'terminal', label: 'Terminal', accent: '#0078d4', icon: <Terminal className="text-blue-300 w-10 h-10" /> },
-  { id: 'askraksha', label: 'Ask Shreya', accent: '#6b69d6', icon: <Sparkles className="text-purple-400 w-10 h-10" /> },
+  {
+    id: 'recycle',
+    label: 'Recycle Bin',
+    isShortcut: false,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-slate-200 to-slate-400 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Trash2 className="w-6 h-6 text-slate-700" />
+      </div>
+    ),
+    action: 'finder',
+  },
+  {
+    id: 'thispc',
+    label: 'This PC',
+    isShortcut: false,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Laptop className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'finder',
+  },
+  {
+    id: 'finder',
+    label: 'File Explorer',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center shadow-md border border-amber-300 relative overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-2 bg-amber-300" />
+        <Folder className="w-6 h-6 text-amber-900 z-10" fill="currentColor" fillOpacity={0.3} />
+      </div>
+    ),
+    action: 'finder',
+  },
+  {
+    id: 'projects',
+    label: 'Projects',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Code className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'projects',
+  },
+  {
+    id: 'resume',
+    label: 'Resume.pdf',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-700 rounded-lg flex items-center justify-center shadow-md border border-white/40 relative">
+        <FileText className="w-6 h-6 text-white" />
+        <span className="absolute bottom-1 right-1 text-[8px] font-black text-white bg-black/40 px-0.5 rounded">PDF</span>
+      </div>
+    ),
+    action: 'resume',
+  },
+  {
+    id: 'about',
+    label: 'About Me',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <User className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'about',
+  },
+  {
+    id: 'skills',
+    label: 'Skills',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Cpu className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'skills',
+  },
+  {
+    id: 'achievements',
+    label: 'Achievements',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Trophy className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'achievements',
+  },
+  {
+    id: 'certifications',
+    label: 'Education',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Award className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'certifications',
+  },
+  {
+    id: 'community',
+    label: 'Community',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-lg flex items-center justify-center shadow-md border border-white/40">
+        <Users className="w-6 h-6 text-white" />
+      </div>
+    ),
+    action: 'community',
+  },
+  {
+    id: 'terminal',
+    label: 'Windows Terminal',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center shadow-md border border-slate-700">
+        <Terminal className="w-6 h-6 text-sky-400" />
+      </div>
+    ),
+    action: 'terminal',
+  },
+  {
+    id: 'askraksha',
+    label: 'Ask Shreya AI',
+    isShortcut: true,
+    icon: (
+      <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-lg flex items-center justify-center shadow-md border border-purple-400">
+        <Sparkles className="w-6 h-6 text-yellow-300" />
+      </div>
+    ),
+    action: 'askraksha',
+  },
 ];
 
 export default function Desktop() {
@@ -40,7 +177,7 @@ export default function Desktop() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setSearchOpen(prev => !prev);
+        setSearchOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -50,34 +187,38 @@ export default function Desktop() {
   return (
     <div className="fixed inset-0 w-screen h-screen overflow-hidden bg-[#202020]">
       {!booted && <BootScreen onComplete={() => setBooted(true)} />}
-      
+
       {booted && (
         <>
           <Wallpaper />
-          
-          <div className="absolute top-0 left-0 right-0 bottom-12 overflow-hidden p-4 pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 w-fit items-start justify-start grid-flow-col auto-cols-max grid-rows-6">
-              {DESKTOP_ICONS.map((icon, index) => (
-                <DesktopIcon
-                  key={index}
-                  icon={icon.icon}
-                  label={icon.label}
-                  accent={icon.accent}
-                  isOpen={windows[icon.id]?.isOpen ?? false}
-                  onDoubleClick={() => openApp(icon.id)}
-                />
-              ))}
-            </div>
+
+          {/* 🪟 Windows 11 Desktop Icons Area - Vertical Columns on Left */}
+          <div className="absolute top-2 left-2 bottom-14 z-10 flex flex-col flex-wrap content-start gap-1 p-2 max-h-[calc(100vh-64px)]">
+            {DESKTOP_ICONS.map((item) => (
+              <DesktopIcon
+                key={item.id}
+                icon={item.icon}
+                label={item.label}
+                isShortcut={item.isShortcut}
+                isOpen={windows[item.action]?.isOpen ?? false}
+                onDoubleClick={() => openApp(item.action)}
+              />
+            ))}
           </div>
 
           <DesktopIdentity />
           <WindowManager />
-          <Dock onOpenAppGrid={() => setSearchOpen(true)} />
-          <MenuBar onOpenSearch={() => setSearchOpen(true)} />
-          
+
+          {/* 🪟 Windows 11 Unified Taskbar */}
+          <Dock onOpenAppGrid={() => setSearchOpen((prev) => !prev)} />
+
+          {/* 🔍 Windows 11 Start Menu / Search Modal */}
           {searchOpen && (
-            <div className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm flex items-end pb-16 justify-center" onClick={() => setSearchOpen(false)}>
-              <div onClick={e => e.stopPropagation()}>
+            <div
+              className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-end pb-16 justify-center animate-in fade-in duration-150"
+              onClick={() => setSearchOpen(false)}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
                 <GlobalSearch onClose={() => setSearchOpen(false)} />
               </div>
             </div>
