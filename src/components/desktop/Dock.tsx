@@ -146,6 +146,12 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
 
           return (
             <div key={item.id} className="relative flex flex-col items-center group">
+              {/* Windows 11 Floating Hover Tooltip */}
+              <div className="absolute -top-11 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-[#282828]/95 border border-white/15 text-[11px] font-medium text-white rounded-md shadow-xl backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-1 group-hover:translate-y-0 whitespace-nowrap z-50 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.accent }} />
+                <span>{item.label}</span>
+              </div>
+
               <button
                 onClick={() => handleAppClick(item.id)}
                 className={`relative h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
@@ -157,7 +163,6 @@ export default function Dock({ onOpenAppGrid }: DockProps) {
                     ? 'bg-white/8 hover:bg-white/14 hover:scale-105'
                     : 'hover:bg-white/10 hover:scale-105'
                 }`}
-                title={item.label}
               >
                 <IconComp
                   className={`w-5 h-5 transition-all duration-300 ${
